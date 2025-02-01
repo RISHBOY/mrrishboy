@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR RISHBOY</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,0,0,1) 90%);
+            z-index: -1;
+        }
+        .btn {
+            display: block;
+            width: 250px;
+            text-align: center;
+            padding: 18px 35px;
+            margin: 12px auto;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 255, 255, 0.9);
+            color: rgba(0, 255, 255, 0.9);
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.8);
+        }
+        .background-photos img {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid cyan;
+            opacity: 0.8;
+            filter: drop-shadow(0px 0px 10px cyan);
+        }
+        .snowflake {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="background-photos">
+        <img src="img/car2.jpg" style="top: 5%; left: 10%;">
+        <img src="img/car3.jpg" style="top: 17%; right: 8%;">
+        <img src="img/car4.jpeg" style="bottom: 12%; left: 15%;">
+        <img src="img/car7.jpg" style="bottom: 5%; right: 20%;">
+        <img src="img/car6.jpg" style="top: 45%; left: 3%;">
+        <img src="img/car5.jpg" style="top: 65%; right: 10%;">
+    </div>
+    <div id="snowfall"></div>
+    <div class="flex flex-col items-center justify-center h-screen relative">
+        <img src="img/logo.png" alt="Profile" class="w-40 h-40 rounded-full border-4 border-cyan-400 mb-6">
+        <h1 class="text-4xl font-bold">RISHBOY</h1>
+        <p class="text-xl text-gray-400 mb-6">YT Streamer | Tech Enthusiast</p>
+        
+        <a href="https://web.facebook.com/rishithapawaridu.rishithapawaridu/" target="_blank" class="btn">Facebook</a>
+        <a href="https://youtube.com/@mrrishboy1?si=Vqz1INOi3oy7MmK-" target="_blank" class="btn">Youtube</a>
+        <a href="https://wa.me/+94715707036" target="_blank" class="btn">WhatsApp</a>
+        <a href="https://www.tiktok.com/@mr.rishboy?_t=8okbbCudVX5&_r=1" target="_blank" class="btn">Discord</a>
+        <a href="https://www.tiktok.com/@mr.rishboy?_t=8okbbCudVX5&_r=1" target="_blank" class="btn">TikTok</a>
+        <a href="https://www.instagram.com/mr_rish_boy_01?igsh=bnU1b3gxeHBtc3Nn" target="_blank" class="btn">Instagram</a>
+    </div>
+    
+    <script>
+        function createSnowflakes() {
+            const snowfall = document.getElementById("snowfall");
+            for (let i = 0; i < 50; i++) {
+                let snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowfall.appendChild(snowflake);
+                gsap.set(snowflake, {
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * -20,
+                    scale: Math.random() * 0.8 + 0.2,
+                });
+                gsap.to(snowflake, {
+                    y: window.innerHeight + 10,
+                    duration: Math.random() * 5 + 3,
+                    repeat: -1,
+                    delay: Math.random() * 5,
+                    ease: "linear"
+                });
+            }
+        }
+        createSnowflakes();
+    </script>
+</body>
+</html>
